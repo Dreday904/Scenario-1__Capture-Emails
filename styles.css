@@ -1,0 +1,22 @@
+.page-header{
+    background: #e1e2e3;
+    padding: 20px;
+}
+.content-area{
+    background: #a3bef0;
+    height: 1500px;
+    font-size: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    font-weight: 700;
+    font-size: 2rem;
+    transform: scale(.8);
+    width: 80px;
+}
+.logo__sub{
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+}
