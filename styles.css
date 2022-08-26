@@ -1,8 +1,9 @@
-.page-header{
+.page-header {
     background: #e1e2e3;
     padding: 20px;
 }
-.content-area{
+
+.content-area {
     background: #a3bef0;
     height: 1500px;
     font-size: 5rem;
@@ -10,35 +11,43 @@
     justify-content: center;
     align-items: center;
 }
-.logo{
+
+.logo {
     font-weight: 700;
     font-size: 2rem;
     transform: scale(.8);
     width: 80px;
 }
-.logo__sub{
+
+.logo__sub {
     font-family: 'Dancing Script', cursive;
     font-size: 1.3rem;
 }
-.email-modal{
-    position: fixed; /* keep the box fixed */
+
+.email-modal {
+    position: fixed;
+    /* keep the box fixed */
     top: 0;
     left: 0;
-    width: 100vw; /* (view width) size of the window */
+    width: 100vw;
+    /* (view width) size of the window */
     height: 100vh;
     background: rgba(0, 0, 0, .7);
-    display: flex; /* keep the modal centered */
+    display: flex;
+    /* keep the modal centered */
     justify-content: center;
     align-items: center;
     transition: all .4s ease-in-out;
     visibility: hidden;
     opacity: 0;
 }
-.email-modal--visible{
+
+.email-modal--visible {
     visibility: visible;
     opacity: 1;
 }
-.email-modal__close-btn{
+
+.email-modal__close-btn {
     position: fixed;
     top: 0;
     right: 0;
@@ -46,70 +55,148 @@
     cursor: pointer;
     background: red;
 }
-.email-modal .gg-close{
+
+.email-modal .gg-close {
     color: white;
 }
-.gg-close{
-    --ggs:2;
+
+.gg-close {
+    --ggs: 2;
 }
-.email-modal__container{
+
+.email-modal__container {
     background: rgba(29, 103, 200, 1);
-    max-width: 700px; /* can be 100% but can only grow to 700px */
+    max-width: 700px;
+    /* can be 100% but can only grow to 700px */
     width: 100%;
     color: white;
     display: flex;
     position: relative;
-    overflow: hidden; /* this means the words inside can't flow out */
+    overflow: hidden;
+    /* this means the words inside can't flow out */
 }
-.email-modal__info{
+
+.email-modal__info {
     width: 100%;
     padding: 15px;
 }
-.email-modal__info .logo{
+
+.email-modal__info .logo {
     margin-bottom: 4rem;
 }
-.email-modal h2{
+
+.email-modal h2 {
     font-size: 1.8rem;
     margin-bottom: 1.2rem;
 }
-.email-modal__message{
+
+.email-modal__message {
     color: rgba(221, 221, 221, 0.63);
     font-weight: 100;
     line-height: 1.7;
     margin-bottom: 1.2rem;
 }
-.email-modal__highlight-text{
+
+.email-modal__highlight-text {
     color: white;
 }
-.email-modal__form-group{
+
+.email-modal__form-group {
     background: white;
     display: flex;
     padding: 5px;
     margin-bottom: 1.2rem;
 }
-.email-modal__input{
+
+.email-modal__form-group--error {
+    border: 1px solid red;
+}
+
+.email-modal__input {
     background: white;
     border: 0px solid;
     width: 100%;
     height: 30px;
 }
-.email-modal__button{
+
+.email-modal__button {
     background: rgba(81, 158, 71, 1);
     color: white;
     border: 0;
     width: 150px;
     cursor: pointer;
 }
-.email-modal__decline-offer{
-    color: rgba(221, 221,221, .6);
+
+/* we use display none to hide this until it's active in js */
+.email-modal__error-message {
+    color: #fbe743;
+    margin-bottom: .7rem;
+    font-size: .8rem;
+    display: none;
+}
+
+/* this is the one we show when active */
+.email-modal__error-message--active {
+    display: block;
+}
+
+.email-modal__decline-offer {
+    color: rgba(221, 221, 221, .6);
     text-decoration: underline;
     font-size: .9rem;
     cursor: pointer;
     transition: color .3s ease-in-out;
 }
-.email-modal__decline-offer:hover{
+
+.email-modal__decline-offer:hover {
     color: white;
 }
-.email-modal__side-img img{
+
+.email-modal__side-img img {
     height: 400px;
+}
+
+.email-thank {
+    position: absolute;
+    /* we put the container to be relative so this being absolute will make it contained to the box instead of the whole site. */
+    width: 100%;
+    height: 100%;
+    background: #fbe743;
+    transform: translate3d(100%, 0, 0);
+    /* the box is there it's just hidden for now */
+    transition: all .4s ease-in-out;
+    /* all items in the center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* this stacks them on top of eah other */
+}
+
+    /*This is the class that after the email is in the database, this is sent to mailchimp or whatever. */
+.email-thank--success {
+    transform: translate3d(0, 0, 0);
+    /* this moves it back to OG location */
+}
+
+.email-thank__title {
+    color: black;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transition: opacity .3s ease-in-out .4s;
+}
+
+.email-thank__message {
+    color: rgba(0, 0, 0, 1);
+    font-weight: 300;
+    font-size: .8rem;
+    opacity: 0;
+    transition: opacity .3s ease-in-out .7s;
+}
+
+.email-thank--success .email-thank__title,
+.email-thank--success .email-thank__message {
+    opacity: 1;
 }
